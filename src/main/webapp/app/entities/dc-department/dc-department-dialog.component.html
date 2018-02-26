@@ -1,0 +1,56 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDcDepartmentLabel" jhiTranslate="dataCenterApp.dcDepartment.home.createOrEditLabel">Create or edit a Dc Department</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dcDepartment.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dcDepartment.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcDepartment.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="dcDepartment.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcDepartment.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="dcDepartment.description" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcDepartment.createTime" for="field_createTime">Create Time</label>
+            <input type="number" class="form-control" name="createTime" id="field_createTime"
+                [(ngModel)]="dcDepartment.createTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcDepartment.updateTime" for="field_updateTime">Update Time</label>
+            <input type="number" class="form-control" name="updateTime" id="field_updateTime"
+                [(ngModel)]="dcDepartment.updateTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcDepartment.isEnable" for="field_isEnable">Is Enable</label>
+            <input type="checkbox" class="form-control" name="isEnable" id="field_isEnable"
+                [(ngModel)]="dcDepartment.isEnable" />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="dataCenterApp.dcDepartment.dcMenu" for="field_dcMenu">Dc Menu</label>
+            <select class="form-control" id="field_dcMenu" multiple name="dcMenu" [(ngModel)]="dcDepartment.dcMenus">
+                <option [ngValue]="getSelected(dcDepartment.dcMenus, dcMenuOption)" *ngFor="let dcMenuOption of dcmenus; trackBy: trackDcMenuById">{{dcMenuOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

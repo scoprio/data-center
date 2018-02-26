@@ -1,0 +1,30 @@
+
+{
+    "dataCenterApp": {
+        "dcMenu" : {
+            "home": {
+                "title": "Dc Menus",
+                "createLabel": "Create a new Dc Menu",
+                "createOrEditLabel": "Create or edit a Dc Menu"
+            },
+            "created": "A new Dc Menu is created with identifier {{ param }}",
+            "updated": "A Dc Menu is updated with identifier {{ param }}",
+            "deleted": "A Dc Menu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dc Menu {{ id }}?"
+            },
+            "detail": {
+                "title": "Dc Menu"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "isEnable": "Is Enable",
+            "parentId": "Parent Id",
+            "level": "Level",
+            "url": "Url",
+            "dcDepartment": "Dc Department"
+        }
+    }
+}

@@ -17,10 +17,10 @@ export class ActiveMenuDirective implements OnInit {
     }
 
     updateActiveFlag(selectedLanguage) {
-      if (this.jhiActiveMenu === selectedLanguage) {
+      // if (this.jhiActiveMenu === selectedLanguage) {
           this.renderer.setElementClass(this.el.nativeElement, 'active', true);
-      } else {
-          this.renderer.setElementClass(this.el.nativeElement, 'active', false);
-      }
+      // } else {
+      //     this.renderer.setElementClass(this.el.nativeElement, 'active', false);
+      // }
     }
 }

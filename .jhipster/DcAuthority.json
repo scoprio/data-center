@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "departmentId",
+            "otherEntityName": "dcDepartment",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "dcAuthority",
+            "relationshipName": "dcRegion",
+            "otherEntityName": "dcRegion",
+            "otherEntityField": "code",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startDate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "endDate",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "level",
+            "fieldType": "Integer"
+        }
+    ],
+    "changelogDate": "20180224081501",
+    "entityTableName": "dc_authority",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

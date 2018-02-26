@@ -1,0 +1,27 @@
+
+{
+    "dataCenterApp": {
+        "dcAuthority" : {
+            "home": {
+                "title": "Dc Authorities",
+                "createLabel": "Create a new Dc Authority",
+                "createOrEditLabel": "Create or edit a Dc Authority"
+            },
+            "created": "A new Dc Authority is created with identifier {{ param }}",
+            "updated": "A Dc Authority is updated with identifier {{ param }}",
+            "deleted": "A Dc Authority is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dc Authority {{ id }}?"
+            },
+            "detail": {
+                "title": "Dc Authority"
+            },
+            "name": "Name",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "level": "Level",
+            "departmentId": "Department Id",
+            "dcRegion": "Dc Region"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DcDepartment.
+    -->
+    <changeSet id="20180224081458-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="dc_departments_id"
+                                 baseTableName="dc_department_dc_menu"
+                                 constraintName="fk_dc_department_dc_menu_dc_departments_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dc_department"/>
+        <addForeignKeyConstraint baseColumnNames="dc_menus_id"
+                                 baseTableName="dc_department_dc_menu"
+                                 constraintName="fk_dc_department_dc_menu_dc_menus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dc_menu"/>
+        
+    </changeSet>
+</databaseChangeLog>

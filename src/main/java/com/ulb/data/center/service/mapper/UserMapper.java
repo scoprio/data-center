@@ -1,6 +1,6 @@
 package com.ulb.data.center.service.mapper;
 
-import com.ulb.data.center.domain.Authority;
+import com.ulb.data.center.domain.DcAuthority;
 import com.ulb.data.center.domain.User;
 import com.ulb.data.center.service.dto.UserDTO;
 
@@ -42,7 +42,7 @@ public class UserMapper {
             user.setImageUrl(userDTO.getImageUrl());
             user.setActivated(userDTO.isActivated());
             user.setLangKey(userDTO.getLangKey());
-            Set<Authority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
+            Set<DcAuthority> authorities = this.authoritiesFromStrings(userDTO.getAuthorities());
             if (authorities != null) {
                 user.setAuthorities(authorities);
             }
@@ -66,10 +66,10 @@ public class UserMapper {
         return user;
     }
 
-    public Set<Authority> authoritiesFromStrings(Set<String> strings) {
-        return strings.stream().map(string -> {
-            Authority auth = new Authority();
-            auth.setName(string);
+    public Set<DcAuthority> authoritiesFromStrings(Set<String> names) {
+        return names.stream().map(name -> {
+            DcAuthority auth = new DcAuthority();
+            auth.setName(name);
             return auth;
         }).collect(Collectors.toSet());
     }

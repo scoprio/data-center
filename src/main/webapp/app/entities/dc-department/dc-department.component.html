@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="dataCenterApp.dcDepartment.home.title">Dc Departments</span>
+        <button class="btn btn-primary float-right jh-create-entity create-dc-department" [routerLink]="['/', { outlets: { popup: ['dc-department-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="dataCenterApp.dcDepartment.home.createLabel">
+            Create new Dc Department
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="dcDepartments">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.name">Name</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.description">Description</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.createTime">Create Time</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.updateTime">Update Time</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.isEnable">Is Enable</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcDepartment.dcMenu">Dc Menu</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dcDepartment of dcDepartments ;trackBy: trackId">
+                <td><a [routerLink]="['../dc-department', dcDepartment.id ]">{{dcDepartment.id}}</a></td>
+                <td>{{dcDepartment.name}}</td>
+                <td>{{dcDepartment.description}}</td>
+                <td>{{dcDepartment.createTime}}</td>
+                <td>{{dcDepartment.updateTime}}</td>
+                <td>{{dcDepartment.isEnable}}</td>
+                <td>
+                    <span *ngFor="let dcMenu of dcDepartment.dcMenus; let last = last">
+                            <a class="form-control-static" [routerLink]="['../dc-menu', dcMenu?.id ]">{{dcMenu.id}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../dc-department', dcDepartment.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dc-department/'+ dcDepartment.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dc-department/'+ dcDepartment.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

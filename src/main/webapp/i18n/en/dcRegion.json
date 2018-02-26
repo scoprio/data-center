@@ -1,0 +1,32 @@
+
+{
+    "dataCenterApp": {
+        "dcRegion" : {
+            "home": {
+                "title": "Dc Regions",
+                "createLabel": "Create a new Dc Region",
+                "createOrEditLabel": "Create or edit a Dc Region"
+            },
+            "created": "A new Dc Region is created with identifier {{ param }}",
+            "updated": "A Dc Region is updated with identifier {{ param }}",
+            "deleted": "A Dc Region is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dc Region {{ id }}?"
+            },
+            "detail": {
+                "title": "Dc Region"
+            },
+            "code": "Code",
+            "regionName": "Region Name",
+            "regionCode": "Region Code",
+            "province": "Province",
+            "city": "City",
+            "district": "District",
+            "adcode": "Adcode",
+            "zipCode": "Zip Code",
+            "level": "Level",
+            "parentId": "Parent Id",
+            "dcAuthority": "Dc Authority"
+        }
+    }
+}

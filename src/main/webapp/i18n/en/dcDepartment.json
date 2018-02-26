@@ -1,0 +1,27 @@
+
+{
+    "dataCenterApp": {
+        "dcDepartment" : {
+            "home": {
+                "title": "Dc Departments",
+                "createLabel": "Create a new Dc Department",
+                "createOrEditLabel": "Create or edit a Dc Department"
+            },
+            "created": "A new Dc Department is created with identifier {{ param }}",
+            "updated": "A Dc Department is updated with identifier {{ param }}",
+            "deleted": "A Dc Department is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Dc Department {{ id }}?"
+            },
+            "detail": {
+                "title": "Dc Department"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "isEnable": "Is Enable",
+            "dcMenu": "Dc Menu"
+        }
+    }
+}

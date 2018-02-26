@@ -2,7 +2,7 @@ package com.ulb.data.center.service.dto;
 
 import com.ulb.data.center.config.Constants;
 
-import com.ulb.data.center.domain.Authority;
+import com.ulb.data.center.domain.DcAuthority;
 import com.ulb.data.center.domain.User;
 
 import org.hibernate.validator.constraints.Email;
@@ -71,7 +71,7 @@ public class UserDTO {
         this.lastModifiedBy = user.getLastModifiedBy();
         this.lastModifiedDate = user.getLastModifiedDate();
         this.authorities = user.getAuthorities().stream()
-            .map(Authority::getName)
+            .map(DcAuthority::getName)
             .collect(Collectors.toSet());
     }
 

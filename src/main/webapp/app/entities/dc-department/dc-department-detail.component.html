@@ -1,0 +1,48 @@
+
+<div *ngIf="dcDepartment">
+    <h2><span jhiTranslate="dataCenterApp.dcDepartment.detail.title">Dc Department</span> {{dcDepartment.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.name">Name</span></dt>
+        <dd>
+            <span>{{dcDepartment.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.description">Description</span></dt>
+        <dd>
+            <span>{{dcDepartment.description}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{dcDepartment.createTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{dcDepartment.updateTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.isEnable">Is Enable</span></dt>
+        <dd>
+            <span>{{dcDepartment.isEnable}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcDepartment.dcMenu">Dc Menu</span></dt>
+        <dd>
+            <span *ngFor="let dcMenu of dcDepartment.dcMenus; let last = last">
+                <a [routerLink]="['/dc-menu', dcMenu?.id ]">{{dcMenu.id}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dc-department/'+ dcDepartment.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,27 @@
+
+{
+    "dataCenterApp": {
+        "dcDepartment" : {
+            "home": {
+                "title": "Dc Departments",
+                "createLabel": "创建新 Dc Department",
+                "createOrEditLabel": "创建或编辑 Dc Department"
+            },
+            "created": "Dc Department {{ param }} 创建成功",
+            "updated": "Dc Department {{ param }} 更新成功",
+            "deleted": "Dc Department {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Dc Department {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dc Department"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "isEnable": "Is Enable",
+            "dcMenu": "Dc Menu"
+        }
+    }
+}

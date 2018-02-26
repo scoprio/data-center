@@ -1,0 +1,32 @@
+
+{
+    "dataCenterApp": {
+        "dcRegion" : {
+            "home": {
+                "title": "Dc Regions",
+                "createLabel": "创建新 Dc Region",
+                "createOrEditLabel": "创建或编辑 Dc Region"
+            },
+            "created": "Dc Region {{ param }} 创建成功",
+            "updated": "Dc Region {{ param }} 更新成功",
+            "deleted": "Dc Region {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Dc Region {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dc Region"
+            },
+            "code": "Code",
+            "regionName": "Region Name",
+            "regionCode": "Region Code",
+            "province": "Province",
+            "city": "City",
+            "district": "District",
+            "adcode": "Adcode",
+            "zipCode": "Zip Code",
+            "level": "Level",
+            "parentId": "Parent Id",
+            "dcAuthority": "Dc Authority"
+        }
+    }
+}

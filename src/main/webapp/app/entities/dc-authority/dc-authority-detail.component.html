@@ -1,0 +1,50 @@
+
+<div *ngIf="dcAuthority">
+    <h2><span jhiTranslate="dataCenterApp.dcAuthority.detail.title">Dc Authority</span> {{dcAuthority.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.name">Name</span></dt>
+        <dd>
+            <span>{{dcAuthority.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{dcAuthority.startDate}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.endDate">End Date</span></dt>
+        <dd>
+            <span>{{dcAuthority.endDate}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.level">Level</span></dt>
+        <dd>
+            <span>{{dcAuthority.level}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.departmentId">Department Id</span></dt>
+        <dd>
+            <div *ngIf="dcAuthority.departmentId">
+                <a [routerLink]="['/dc-department', dcAuthority.departmentId?.id]">{{dcAuthority.departmentId?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcAuthority.dcRegion">Dc Region</span></dt>
+        <dd>
+            <span *ngFor="let dcRegion of dcAuthority.dcRegions; let last = last">
+                <a [routerLink]="['/dc-region', dcRegion?.id ]">{{dcRegion.code}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dc-authority/'+ dcAuthority.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

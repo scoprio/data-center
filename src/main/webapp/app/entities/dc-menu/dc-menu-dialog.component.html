@@ -1,0 +1,65 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDcMenuLabel" jhiTranslate="dataCenterApp.dcMenu.home.createOrEditLabel">Create or edit a Dc Menu</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!dcMenu.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="dcMenu.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="dcMenu.name" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.description" for="field_description">Description</label>
+            <input type="text" class="form-control" name="description" id="field_description"
+                [(ngModel)]="dcMenu.description" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.createTime" for="field_createTime">Create Time</label>
+            <input type="number" class="form-control" name="createTime" id="field_createTime"
+                [(ngModel)]="dcMenu.createTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.updateTime" for="field_updateTime">Update Time</label>
+            <input type="number" class="form-control" name="updateTime" id="field_updateTime"
+                [(ngModel)]="dcMenu.updateTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.isEnable" for="field_isEnable">Is Enable</label>
+            <input type="checkbox" class="form-control" name="isEnable" id="field_isEnable"
+                [(ngModel)]="dcMenu.isEnable" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.parentId" for="field_parentId">Parent Id</label>
+            <input type="number" class="form-control" name="parentId" id="field_parentId"
+                [(ngModel)]="dcMenu.parentId" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.level" for="field_level">Level</label>
+            <input type="number" class="form-control" name="level" id="field_level"
+                [(ngModel)]="dcMenu.level" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="dataCenterApp.dcMenu.url" for="field_url">Url</label>
+            <input type="text" class="form-control" name="url" id="field_url"
+                [(ngModel)]="dcMenu.url" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

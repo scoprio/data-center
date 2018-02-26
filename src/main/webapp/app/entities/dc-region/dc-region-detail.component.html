@@ -1,0 +1,62 @@
+
+<div *ngIf="dcRegion">
+    <h2><span jhiTranslate="dataCenterApp.dcRegion.detail.title">Dc Region</span> {{dcRegion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.code">Code</span></dt>
+        <dd>
+            <span>{{dcRegion.code}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.regionName">Region Name</span></dt>
+        <dd>
+            <span>{{dcRegion.regionName}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.regionCode">Region Code</span></dt>
+        <dd>
+            <span>{{dcRegion.regionCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.province">Province</span></dt>
+        <dd>
+            <span>{{dcRegion.province}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.city">City</span></dt>
+        <dd>
+            <span>{{dcRegion.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.district">District</span></dt>
+        <dd>
+            <span>{{dcRegion.district}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.adcode">Adcode</span></dt>
+        <dd>
+            <span>{{dcRegion.adcode}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.zipCode">Zip Code</span></dt>
+        <dd>
+            <span>{{dcRegion.zipCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.level">Level</span></dt>
+        <dd>
+            <span>{{dcRegion.level}}</span>
+        </dd>
+        <dt><span jhiTranslate="dataCenterApp.dcRegion.parentId">Parent Id</span></dt>
+        <dd>
+            <span>{{dcRegion.parentId}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'dc-region/'+ dcRegion.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

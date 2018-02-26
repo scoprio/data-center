@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="dataCenterApp.dcMenu.home.title">Dc Menus</span>
+        <button class="btn btn-primary float-right jh-create-entity create-dc-menu" [routerLink]="['/', { outlets: { popup: ['dc-menu-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="dataCenterApp.dcMenu.home.createLabel">
+            Create new Dc Menu
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="dcMenus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.name">Name</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.description">Description</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.createTime">Create Time</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.updateTime">Update Time</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.isEnable">Is Enable</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.parentId">Parent Id</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.level">Level</span></th>
+            <th><span jhiTranslate="dataCenterApp.dcMenu.url">Url</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let dcMenu of dcMenus ;trackBy: trackId">
+                <td><a [routerLink]="['../dc-menu', dcMenu.id ]">{{dcMenu.id}}</a></td>
+                <td>{{dcMenu.name}}</td>
+                <td>{{dcMenu.description}}</td>
+                <td>{{dcMenu.createTime}}</td>
+                <td>{{dcMenu.updateTime}}</td>
+                <td>{{dcMenu.isEnable}}</td>
+                <td>{{dcMenu.parentId}}</td>
+                <td>{{dcMenu.level}}</td>
+                <td>{{dcMenu.url}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../dc-menu', dcMenu.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dc-menu/'+ dcMenu.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'dc-menu/'+ dcMenu.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

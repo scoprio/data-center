@@ -40,8 +40,15 @@ public class CacheConfiguration {
             cm.createCache(com.ulb.data.center.repository.UserRepository.USERS_BY_LOGIN_CACHE, jcacheConfiguration);
             cm.createCache(com.ulb.data.center.repository.UserRepository.USERS_BY_EMAIL_CACHE, jcacheConfiguration);
             cm.createCache(com.ulb.data.center.domain.User.class.getName(), jcacheConfiguration);
-            cm.createCache(com.ulb.data.center.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.ulb.data.center.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcDepartment.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcDepartment.class.getName() + ".dcMenus", jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcMenu.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcMenu.class.getName() + ".dcDepartments", jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcRegion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcRegion.class.getName() + ".dcAuthorities", jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcAuthority.class.getName(), jcacheConfiguration);
+            cm.createCache(com.ulb.data.center.domain.DcAuthority.class.getName() + ".dcRegions", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

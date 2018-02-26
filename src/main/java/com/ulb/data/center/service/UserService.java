@@ -1,9 +1,9 @@
 package com.ulb.data.center.service;
 
 import com.ulb.data.center.config.CacheConfiguration;
-import com.ulb.data.center.domain.Authority;
+import com.ulb.data.center.domain.DcAuthority;
 import com.ulb.data.center.domain.User;
-import com.ulb.data.center.repository.AuthorityRepository;
+import com.ulb.data.center.repository.DcAuthorityRepository;
 import com.ulb.data.center.config.Constants;
 import com.ulb.data.center.repository.UserRepository;
 import com.ulb.data.center.security.AuthoritiesConstants;
@@ -39,11 +39,11 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final AuthorityRepository authorityRepository;
+    private final DcAuthorityRepository authorityRepository;
 
     private final CacheManager cacheManager;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthorityRepository authorityRepository, CacheManager cacheManager) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, DcAuthorityRepository authorityRepository, CacheManager cacheManager) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.authorityRepository = authorityRepository;
@@ -94,8 +94,8 @@ public class UserService {
     public User registerUser(UserDTO userDTO, String password) {
 
         User newUser = new User();
-        Authority authority = authorityRepository.findOne(AuthoritiesConstants.USER);
-        Set<Authority> authorities = new HashSet<>();
+//        DcAuthority authority = authorityRepository.findOne(AuthoritiesConstants.USER);
+        Set<DcAuthority> authorities = new HashSet<>();
         String encryptedPassword = passwordEncoder.encode(password);
         newUser.setLogin(userDTO.getLogin());
         // new user gets initially a generated password
@@ -109,7 +109,7 @@ public class UserService {
         newUser.setActivated(false);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
-        authorities.add(authority);
+//        authorities.add(authority);
         newUser.setAuthorities(authorities);
         userRepository.save(newUser);
         cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(newUser.getLogin());
@@ -131,8 +131,8 @@ public class UserService {
             user.setLangKey(userDTO.getLangKey());
         }
         if (userDTO.getAuthorities() != null) {
-            Set<Authority> authorities = userDTO.getAuthorities().stream()
-                .map(authorityRepository::findOne)
+            Set<DcAuthority> authorities = userDTO.getAuthorities().stream()
+                .map(authorityRepository::findOneByName)
                 .collect(Collectors.toSet());
             user.setAuthorities(authorities);
         }
@@ -189,10 +189,10 @@ public class UserService {
                 user.setImageUrl(userDTO.getImageUrl());
                 user.setActivated(userDTO.isActivated());
                 user.setLangKey(userDTO.getLangKey());
-                Set<Authority> managedAuthorities = user.getAuthorities();
+                Set<DcAuthority> managedAuthorities = user.getAuthorities();
                 managedAuthorities.clear();
                 userDTO.getAuthorities().stream()
-                    .map(authorityRepository::findOne)
+                    .map(authorityRepository::findOneByName)
                     .forEach(managedAuthorities::add);
                 cacheManager.getCache(UserRepository.USERS_BY_LOGIN_CACHE).evict(user.getLogin());
                 cacheManager.getCache(UserRepository.USERS_BY_EMAIL_CACHE).evict(user.getEmail());
@@ -263,7 +263,7 @@ public class UserService {
      * @return a list of all the authorities
      */
     public List<String> getAuthorities() {
-        return authorityRepository.findAll().stream().map(Authority::getName).collect(Collectors.toList());
+        return authorityRepository.findAll().stream().map(DcAuthority::getName).collect(Collectors.toList());
     }
 
 }

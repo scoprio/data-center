@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DcAuthority.
+    -->
+    <changeSet id="20180224081501-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="dc_authority"
+                                 constraintName="fk_dc_authority_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dc_department"/>
+
+        <addForeignKeyConstraint baseColumnNames="dc_authorities_id"
+                                 baseTableName="dc_authority_dc_region"
+                                 constraintName="fk_dc_authority_dc_region_dc_authorities_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dc_authority"/>
+        <addForeignKeyConstraint baseColumnNames="dc_regions_id"
+                                 baseTableName="dc_authority_dc_region"
+                                 constraintName="fk_dc_authority_dc_region_dc_regions_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="dc_region"/>
+
+    </changeSet>
+</databaseChangeLog>

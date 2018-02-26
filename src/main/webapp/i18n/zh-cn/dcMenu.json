@@ -1,0 +1,30 @@
+
+{
+    "dataCenterApp": {
+        "dcMenu" : {
+            "home": {
+                "title": "Dc Menus",
+                "createLabel": "创建新 Dc Menu",
+                "createOrEditLabel": "创建或编辑 Dc Menu"
+            },
+            "created": "Dc Menu {{ param }} 创建成功",
+            "updated": "Dc Menu {{ param }} 更新成功",
+            "deleted": "Dc Menu {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Dc Menu {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dc Menu"
+            },
+            "name": "Name",
+            "description": "Description",
+            "createTime": "Create Time",
+            "updateTime": "Update Time",
+            "isEnable": "Is Enable",
+            "parentId": "Parent Id",
+            "level": "Level",
+            "url": "Url",
+            "dcDepartment": "Dc Department"
+        }
+    }
+}

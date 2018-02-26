@@ -1,0 +1,27 @@
+
+{
+    "dataCenterApp": {
+        "dcAuthority" : {
+            "home": {
+                "title": "Dc Authorities",
+                "createLabel": "创建新 Dc Authority",
+                "createOrEditLabel": "创建或编辑 Dc Authority"
+            },
+            "created": "Dc Authority {{ param }} 创建成功",
+            "updated": "Dc Authority {{ param }} 更新成功",
+            "deleted": "Dc Authority {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Dc Authority {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Dc Authority"
+            },
+            "name": "Name",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "level": "Level",
+            "departmentId": "Department Id",
+            "dcRegion": "Dc Region"
+        }
+    }
+}
